@@ -1,25 +1,15 @@
-class BankAccount:
-    def __init__(self, account_number, initial_balance):
-        self.__account_number = account_number
-        self.__balance = initial_balance
+import pygame
+import constants
 
-    def get_account_number(self):
-        return self.__account_number
+def main():
+	pygame.init()
+	pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
+	print("Starting Asteroids!")
+	print("Screen width: 1280")
+	print("Screen height: 720")
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			return
 
-    def get_balance(self):
-        return self.__balance
-
-    def deposit(self, amount):
-        if amount <= 0:
-            raise ValueError("cannot deposit zero or negative funds")
-        self.__balance += amount
-
-    def withdraw(self, amount):
-        if amount <= 0:
-            raise ValueError("cannot withdraw zero or negative funds")
-        if amount > self.__balance:
-            raise ValueError("insufficient funds")
-        self.__balance -= amount
-
-
-
+if __name__ == "__main__":
+    main()
